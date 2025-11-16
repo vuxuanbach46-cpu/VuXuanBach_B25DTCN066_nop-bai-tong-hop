@@ -10,7 +10,6 @@
 char arr[100][100];
 int n = 0;
 
-// ================== KHAI BÁO HÀM ==================
 void menu();
 void nhapMang();
 void inMang();
@@ -18,7 +17,6 @@ void themPT();
 void suaPT();
 void xoaPT();
 
-// ==================================================
 int main() {
     int choice;
 
@@ -26,7 +24,7 @@ int main() {
         menu();
         printf(CYAN ">> Nhap lua chon: " RESET);
         scanf("%d", &choice);
-        getchar(); // clear buffer
+        getchar();
 
         if (choice != 1 && choice != 0 && n == 0) {
             printf(RED "\nBan phai chon 1 de nhap du lieu truoc!\n\n" RESET);
@@ -48,7 +46,6 @@ int main() {
     return 0;
 }
 
-// ===================== MENU B?NG Ð?P =====================
 void menu() {
     printf(YELLOW "+----------------------------------------------+\n" RESET);
     printf(YELLOW "|        CHUONG TRINH QUAN LY MANG CHUOI       |\n" RESET);
@@ -62,9 +59,6 @@ void menu() {
     printf(YELLOW "+----------------------------------------------+\n" RESET);
 }
 
-// =================== CÁC HÀM X? LÝ ===================
-
-// 1. Nh?p m?ng
 void nhapMang() {
     printf(GREEN "\n==> NHAP MANG\n" RESET);
     printf("Nhap so phan tu: ");
@@ -80,18 +74,14 @@ void nhapMang() {
     printf(GREEN "==> Da nhap xong!\n\n" RESET);
 }
 
-// 2. In m?ng
 void inMang() {
     printf(GREEN "\n==> IN MANG\n" RESET);
-
     for (int i = 0; i < n; i++) {
         printf("[%d] %s\n", i, arr[i]);
     }
-
     printf("\n");
 }
 
-// 3. Thêm ph?n t?
 void themPT() {
     int pos;
     char value[100];
@@ -119,7 +109,6 @@ void themPT() {
     printf(GREEN "==> Da them thanh cong!\n\n" RESET);
 }
 
-// 4. S?a ph?n t?
 void suaPT() {
     int pos;
     printf(GREEN "\n==> SUA PHAN TU\n" RESET);
@@ -139,7 +128,6 @@ void suaPT() {
     printf(GREEN "==> Da sua thanh cong!\n\n" RESET);
 }
 
-// 5. Xóa ph?n t?
 void xoaPT() {
     int pos;
     printf(GREEN "\n==> XOA PHAN TU\n" RESET);
@@ -158,4 +146,3 @@ void xoaPT() {
 
     printf(GREEN "==> Da xoa thanh cong!\n\n" RESET);
 }
-
