@@ -26,22 +26,30 @@ int main() {
         scanf("%d", &choice);
         getchar();
 
-        if (choice != 1 && choice != 0 && n == 0) {
-            printf(RED "\nBan phai chon 1 de nhap du lieu truoc!\n\n" RESET);
+        if (choice!= 1&&choice!= 0 && n == 0) {
+            printf(RED "\nBan phai chon 1 de nhap du lieu truoc!" RESET);
             continue;
         }
 
         switch (choice) {
-            case 1: nhapMang(); break;
-            case 2: inMang(); break;
-            case 3: themPT(); break;
-            case 4: suaPT(); break;
-            case 5: xoaPT(); break;
-            case 0: printf(GREEN "\nThoat chuong trinh.\n" RESET); break;
-            default: printf(RED "\nLua chon khong hop le!\n" RESET);
+            case 1: nhapMang();
+				break;
+            case 2: inMang(); 
+				break;
+            case 3: themPT(); 
+				break;
+            case 4: suaPT(); 
+				break;
+            case 5: xoaPT(); 
+				break;
+            case 6: 
+				printf(GREEN "\nThoat chuong trinh " RESET); 
+				break;
+            default: 
+				printf(RED "\nLua chon khong hop le " RESET);
         }
 
-    } while (choice != 0);
+    } while(choice != 0);
 
     return 0;
 }
@@ -55,27 +63,27 @@ void menu() {
     printf(YELLOW "| 3. Them phan tu                              |\n" RESET);
     printf(YELLOW "| 4. Sua phan tu                               |\n" RESET);
     printf(YELLOW "| 5. Xoa phan tu                               |\n" RESET);
-    printf(YELLOW "| 0. Thoat                                     |\n" RESET);
+    printf(YELLOW "| 6. Thoat                                     |\n" RESET);
     printf(YELLOW "+----------------------------------------------+\n" RESET);
 }
 
 void nhapMang() {
-    printf(GREEN "\n==> NHAP MANG\n" RESET);
-    printf("Nhap so phan tu: ");
+    printf(GREEN "\n NHAP MANG" RESET);
+    printf("\nNhap so phan tu: ");
     scanf("%d", &n);
     getchar();
 
     for (int i = 0; i < n; i++) {
-        printf("Nhap phan tu [%d]: ", i);
+        printf("Nhap phan tu [%d]: ",i);
         fgets(arr[i], 100, stdin);
         arr[i][strcspn(arr[i], "\n")] = '\0';
     }
 
-    printf(GREEN "==> Da nhap xong!\n\n" RESET);
+    printf(GREEN " Da nhap xong!" RESET);
 }
 
 void inMang() {
-    printf(GREEN "\n==> IN MANG\n" RESET);
+    printf(GREEN "\n IN MANG" RESET);
     for (int i = 0; i < n; i++) {
         printf("[%d] %s\n", i, arr[i]);
     }
@@ -86,8 +94,8 @@ void themPT() {
     int pos;
     char value[100];
 
-    printf(GREEN "\n==> THEM PHAN TU\n" RESET);
-    printf("Nhap vi tri: ");
+    printf(GREEN "\n THEM PHAN TU" RESET);
+    printf("\nNhap vi tri: ");
     scanf("%d", &pos);
     getchar();
 
@@ -96,53 +104,53 @@ void themPT() {
         return;
     }
 
-    printf("Nhap gia tri: ");
-    fgets(value, 100, stdin);
+    printf("\nNhap gia tri: ");
+    fgets(value,100,stdin);
     value[strcspn(value, "\n")] = '\0';
 
     for (int i = n; i > pos; i--) {
-        strcpy(arr[i], arr[i - 1]);
+        strcpy(arr[i],arr[i - 1]);
     }
     strcpy(arr[pos], value);
     n++;
 
-    printf(GREEN "==> Da them thanh cong!\n\n" RESET);
+    printf(GREEN "\nDa them thanh cong!" RESET);
 }
 
 void suaPT() {
     int pos;
-    printf(GREEN "\n==> SUA PHAN TU\n" RESET);
-    printf("Nhap vi tri can sua: ");
-    scanf("%d", &pos);
+    printf(GREEN "\nSUA PHAN TU" RESET);
+    printf("\nNhap vi tri can sua : ");
+    scanf("%d",&pos);
     getchar();
 
-    if (pos < 0 || pos >= n) {
-        printf(RED "Vi tri khong hop le!\n" RESET);
+    if (pos<0 || pos >= n) {
+        printf(RED "\nVi tri khong hop le!" RESET);
         return;
     }
 
-    printf("Nhap gia tri moi: ");
-    fgets(arr[pos], 100, stdin);
+    printf("\nNhap gia tri moi : ");
+    fgets(arr[pos], 100,stdin);
     arr[pos][strcspn(arr[pos], "\n")] = '\0';
 
-    printf(GREEN "==> Da sua thanh cong!\n\n" RESET);
+    printf(GREEN "\nDa sua thanh cong!" RESET);
 }
 
 void xoaPT() {
     int pos;
-    printf(GREEN "\n==> XOA PHAN TU\n" RESET);
-    printf("Nhap vi tri xoa: ");
+    printf(GREEN "\nXOA PHAN TU" RESET);
+    printf("\nNhap vi tri xoa : ");
     scanf("%d", &pos);
 
-    if (pos < 0 || pos >= n) {
+    if (pos < 0 ||pos>=n) {
         printf(RED "Vi tri khong hop le!\n" RESET);
         return;
     }
 
-    for (int i = pos; i < n - 1; i++) {
-        strcpy(arr[i], arr[i + 1]);
+    for (int i= pos; i<n - 1; i++) {
+        strcpy(arr[i],arr[i + 1]);
     }
     n--;
 
-    printf(GREEN "==> Da xoa thanh cong!\n\n" RESET);
+    printf(GREEN "\nDa xoa thanh cong!" RESET);
 }
